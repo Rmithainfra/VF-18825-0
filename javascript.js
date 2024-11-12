@@ -42,19 +42,19 @@ var viewer = pannellum.viewer('panorama', {
         "northOffset":60
       },
 
-    //   "image-4":{
-    //     "type": "equirectangular",
-    //     "panorama": "23m.jpg",
-    //     "hfov":200,
-    //     "haov": 360,
-    //     "vaov":150,
-    //     "minPitch":-25,
-    //     "maxPitch": 25,
-    //     "yaw": -75,
-    //     "compass":true,
-    //     "northOffset":80
+      "image-4":{
+        "type": "equirectangular",
+        "panorama": "Roof.jpg",
+        "hfov":200,
+        "haov": 360,
+        "vaov":150,
+        "minPitch":-25,
+        "maxPitch": 25,
+        "yaw": -80,
+        "compass":true,
+        "northOffset":80
         
-    //   }, 
+      }, 
     }
 });
 function togglePopupBackground(containerId, isHover) {
@@ -69,20 +69,24 @@ function togglePopupWindows() {
     var popupContainer1 = document.getElementById('popup-container-1');
     var popupContainer2 = document.getElementById('popup-container-2');
     var popupContainer3 = document.getElementById('popup-container-3');
+    var popupContainer4 = document.getElementById('popup-container-4');
 
     // Check if any of the popups are currently displayed
     if (popupContainer1.style.display === 'block' || 
         popupContainer2.style.display === 'block' || 
-        popupContainer3.style.display === 'block') {
+        popupContainer3.style.display === 'block' ||
+        popupContainer4.style.display === 'block') {
         // If any are displayed, hide all
         popupContainer1.style.display = 'none';
         popupContainer2.style.display = 'none';
         popupContainer3.style.display = 'none';
+        popupContainer4.style.display = 'none';
     } else {
         // If none are displayed, show all
         popupContainer1.style.display = 'block';
         popupContainer2.style.display = 'block';
         popupContainer3.style.display = 'block';
+        popupContainer4.style.display = 'block';
     }
 }
 
@@ -106,10 +110,10 @@ document.getElementById('image-3').addEventListener('click', function() {
     togglePopupWindows();
 });
 
-// document.getElementById('image-4').addEventListener('click', function() {
-//     viewer.loadScene('image-4');
-//     togglePopupWindows();
-// });
+document.getElementById('image-4').addEventListener('click', function() {
+    viewer.loadScene('image-4');
+    togglePopupWindows();
+});
 
 // Function to update degree scale
 function updateDegreeScale() {
@@ -124,7 +128,7 @@ function updateDegreeScale() {
       "image-1": -12,
       "image-2": -87,
       "image-3": -96,
-    //   "image-4":-75
+      "image-4":-80
     };
   
     // Get the adjusted yaw value based on the current scene and initial yaw
